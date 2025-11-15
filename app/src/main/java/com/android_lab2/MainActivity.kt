@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,11 +13,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.android_lab2.ui.theme.PixLetterTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +27,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PixLetterTheme {
-                GreetingText(message = "Royal Decree!\n" +
+                GreetingImage(message = "Royal Decree!\n" +
                         "Dear my Friend,\n" +
                         "His Majesty the King\n" +
                         "Invites you to a great feast!\n" +
@@ -39,12 +42,13 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun RoyalInvitationPreview() {
     PixLetterTheme {
-        GreetingText(message = "Royal Decree!\n" +
-                "Dear my Friend,\n" +
-                "His Majesty the King\n" +
-                "Invites you to a great feast!\n" +
-                "Come to the castle before sunset,\n" +
-                "otherwise, you risk losing your head!", from = "From King Arthur")
+        GreetingImage(
+            message = "Royal Decree!\n" +
+            "Dear my Friend,\n" +
+            "His Majesty the King\n" +
+            "Invites you to a great feast!\n" +
+            "Come to the castle before sunset,\n" +
+            "otherwise, you risk losing your head!", from = "From King Arthur")
     }
 }
 
@@ -69,3 +73,13 @@ fun GreetingText(message: String, from: String, modifier: Modifier = Modifier) {
         )
     }
 }
+
+@Composable
+fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier){
+    val image = painterResource(R.drawable.i__1_)
+    Image(
+        painter = image,
+        contentDescription = null
+    )
+}
+//конец 7 страница
